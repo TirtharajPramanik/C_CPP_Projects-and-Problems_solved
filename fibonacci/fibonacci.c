@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int isNumber(char number[]);
+#include "numbers.h"
 
 int main(int argc, char *argv[]) {
   int c;
@@ -9,7 +8,7 @@ int main(int argc, char *argv[]) {
   int fat = 0;
   if(argc > 1 && isNumber(argv[1])) {
     c = atoi(argv[1]);
-    if(c < 0) c = 0 - c;
+    if(c < 0) c = -c;
     if(c > 47) {
       printf("max numaber can take `47`\n");
       return 0;
@@ -45,15 +44,4 @@ int main(int argc, char *argv[]) {
   if(ret) printf("ans: %d\n", b);
   else printf("ans: %d\n", a);
   return 0;
-}
-
-int isNumber(char number[]) {
-  int i = 0;
-  //checking for negative numbers
-  if (number[0] == '-') i = 1;
-  for (; number[i] != 0; i++) {
-    if (number[i] > '9' || number[i] < '0')
-      return 0;
-  }
-  return 1;
 }

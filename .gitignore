@@ -1,4 +1,9 @@
 .DS_Store
 .vscode
+*/.vscode
 *.out
 junk/
+Makefile
+*/Makefile
+malefile
+*/makefile
