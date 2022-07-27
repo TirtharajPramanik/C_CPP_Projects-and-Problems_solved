@@ -1,4 +1,4 @@
-### C++ Projects
+### C and C++ Projects and Problems (solved)
 
 ## Table of Contents
 
@@ -6,14 +6,18 @@
 
 ## Folder Structure
 
-```
+```bash
 .
-├── README.md
+├── GuessTheNumber
+│   ├── GuessTheNumber.c
+│   └── Makefile
+├── fibonacci
+│   └── fibonacci.c
 ├── login_system
 │   └── procedual.cpp
 └── vectors
     ├── classes.cpp
     └── structs.cpp
 
-2 directories, 4 files
+4 directories, 6 files
 ```
