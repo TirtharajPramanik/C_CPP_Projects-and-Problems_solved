@@ -11,6 +11,8 @@
 ├── GuessTheNumber
 │   └── GuessTheNumber.c
 ├── customer_billing
+│   ├── control.h
+│   ├── lib.h
 │   └── main.c
 ├── fibonacci
 │   ├── fibonacci.c
@@ -22,5 +24,5 @@
     ├── classes.cpp
     └── structs.cpp
 
-5 directories, 8 files
-```
+5 directories, 10 files
+``
