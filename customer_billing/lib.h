@@ -8,44 +8,49 @@ void showOptions()
     printf("[3]:\tExit\n");
 }
 
-char getInput(int len)
+char getInput()
 {
     showOptions();
-    char cmd[len];
+    char cmd;
     printf("Enter:\t");
-    if (scanf(" %s", cmd))
-        return cmd[0];
+    if (scanf(" %c", &cmd))
+        return cmd;
     return '0';
 }
 
 int showJob(char cmd)
 {
     switch (cmd)
+    {
+    case '1':
+        showRecords();
+        break;
+    case '2':
+        for (int i = 0; i < 3; i++)
         {
-            case '1':
-                showRecords();
-                break;
-            case '2':
-                addRecord();
-                break;
-            case '3':
-                controlExit();
-                break;
-            default:
-                return 0;
+            addRecord();
+            break;
         }
+        break;
+    case '3':
+        controlExit();
+        break;
+    default:
+        return 0;
+    }
     return 1;
 }
 
 void getcmd(int tries)
 {
-    if(tries < 1 || tries > 10)
+    if (tries < 1 || tries > 10)
         tries = 3;
     char cmd;
-    for(; tries > 0; tries--) 
+    for (; tries > 0; tries--)
     {
-        cmd = getInput(tries);
-        if(showJob(cmd)) break;
+        cmd = getInput();
+        if (showJob(cmd))
+            break;
         printf("Error!\tRetry!!\n\n");
     }
 }
