@@ -26,11 +26,7 @@ int showJob(char cmd)
         showRecords();
         break;
     case '2':
-        for (int i = 0; i < 3; i++)
-        {
-            addRecord();
-            break;
-        }
+        addRecord();
         break;
     case '3':
         controlExit();
