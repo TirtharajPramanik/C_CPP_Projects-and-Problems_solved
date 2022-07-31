@@ -6,14 +6,16 @@
 
 ## Folder Structure
 
-```bash
-.
+```bash.
 ├── GuessTheNumber
 │   └── GuessTheNumber.c
 ├── customer_billing
 │   ├── control.h
 │   ├── lib.h
 │   └── main.c
+├── factorial
+│   ├── factorial.c
+│   └── factorial_recursion.c
 ├── fibonacci
 │   ├── fibonacci.c
 │   ├── fibonacci_recursion.c
@@ -24,5 +26,6 @@
     ├── classes.cpp
     └── structs.cpp
 
-5 directories, 10 files
+6 directories, 12 files
 ``
+```
