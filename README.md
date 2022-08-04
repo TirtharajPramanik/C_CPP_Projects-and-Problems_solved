@@ -1,12 +1,13 @@
-### C and C++ Projects and Problems (solved)
+# C Projects and Problems (solved)
 
 ## Table of Contents
 
 - Folder Structure
 
-## Folder Structure
+## Folder Structur
 
-```bash.
+```bash
+.
 ├── GuessTheNumber
 │   └── GuessTheNumber.c
 ├── customer_billing
@@ -20,12 +21,9 @@
 │   ├── fibonacci.c
 │   ├── fibonacci_recursion.c
 │   └── numbers.h
-├── login_system
-│   └── procedual.cpp
-└── vectors
-    ├── classes.cpp
-    └── structs.cpp
+└── linked_list
+    ├── main.c
+    └── linked.h
 
-6 directories, 12 files
-``
+5 directories, 11 files
 ```

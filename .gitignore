@@ -9,3 +9,5 @@ malefile
 */makefile
 *.csv
 */*.csv
+_*
+*/**/_*
