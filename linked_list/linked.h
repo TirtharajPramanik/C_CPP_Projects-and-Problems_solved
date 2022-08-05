@@ -7,6 +7,9 @@ typedef struct node
     struct node *next;
 } node_t;
 
+node_t createList(int nodec, char *nodes[]);
+void printList(node_t *head);
+
 node_t createList(int nodec, char *nodes[])
 {
     node_t head;

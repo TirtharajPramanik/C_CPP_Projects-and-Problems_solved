@@ -4,9 +4,17 @@
 
 #define MAX_LIMIT 20
 
-char cmd[MAX_LIMIT];
-bool listen = true;
-node_t list;
+char CMD[MAX_LIMIT];
+bool LISTEN = true;
+node_t LIST;
+
+node_t COMMANDS;
+char *CMDS[] = {"ls",
+                "psh",
+                "ins",
+                "pop",
+                "rm",
+                "new"};
 
 void greet();
 char *getcmd();
@@ -15,37 +23,44 @@ void repl();
 
 void greet()
 {
-    char *nodes[] = {"hello",
-                     "bye",
-                     "Congrats!"};
-
-    list = createList(3, nodes);
-    printf("[*] Awesome, REPL!\n\n");
+    COMMANDS = createList(6, CMDS);
+    printf("[*] Awesome, REPL!\n");
+    printf("[*] Type `exit` to Quit Sesson!\n");
+    printf("[*] Type `help` to List Commands!\n\n");
 }
 
 char *getcmd()
 {
     fputs(" cmd:> \t", stdout);
-    fgets(cmd, MAX_LIMIT, stdin);
-    strtok(cmd, "\n");
-    return cmd;
+    fgets(CMD, MAX_LIMIT, stdin);
+    strtok(CMD, "\n");
+    return CMD;
 }
 
 void handlecmd(char *cmd)
 {
-    if (!strcmp(cmd, "ls"))
-        printList(&list);
-    else
+    if (strcmp(cmd, "exit") == 0)
     {
-        printf("[-] Exiting...\n");
-        listen = false;
+        LISTEN = false;
+        printf("[*] Exiting...\n");
     }
+    else if (strcmp(cmd, "help") == 0)
+        printList(&COMMANDS);
+    else if (strcmp(cmd, "ls") == 0)
+    {
+        if (LIST.val == NULL)
+            printf("[*] Create New List with `new` cmd\n");
+        else
+            printList(&LIST);
+    }
+    else
+        printf("[-] cmd not found!\n");
 }
 
 void repl()
 {
     greet();
-    while (listen)
+    while (LISTEN)
     {
         handlecmd(getcmd());
     }
