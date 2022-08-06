@@ -1,67 +1,53 @@
-#include <stdbool.h>
-#include <string.h>
-#include "linked.h"
+#include "cmd.h"
 
-#define MAX_LIMIT 20
-
-char CMD[MAX_LIMIT];
-bool LISTEN = true;
-node_t LIST;
-
-node_t COMMANDS;
-char *CMDS[] = {"ls",
-                "psh",
-                "ins",
-                "pop",
-                "rm",
-                "new"};
-
-void greet();
-char *getcmd();
-void handle_cmd(char *cmd);
 void repl();
+char *getcmd();
+void handlecmd(char *cmd);
 
-void greet()
+void repl()
 {
-    COMMANDS = createList(6, CMDS);
-    printf("[*] Awesome, REPL!\n");
-    printf("[*] Type `exit` to Quit Sesson!\n");
-    printf("[*] Type `help` to List Commands!\n\n");
-}
+    greet();
+    while (LISTEN > 0)
+        handlecmd(getcmd());
+};
 
 char *getcmd()
 {
-    fputs(" cmd:> \t", stdout);
+    fputs("\n cmd:> \t", stdout);
     fgets(CMD, MAX_LIMIT, stdin);
     strtok(CMD, "\n");
     return CMD;
 }
 
-void handlecmd(char *cmd)
+void handlecmd(char *cmds)
 {
+    char *cmd = strtok(cmds, " ");
+    char *opt;
+    if (cmd != NULL)
+        opt = strtok(NULL, " ");
+
     if (strcmp(cmd, "exit") == 0)
-    {
-        LISTEN = false;
-        printf("[*] Exiting...\n");
-    }
+        exitrepl();
     else if (strcmp(cmd, "help") == 0)
-        printList(&COMMANDS);
+        printhelp();
+    else if (strcmp(cmd, "lss") == 0)
+        printf("%s\n", cmd); // TODO
     else if (strcmp(cmd, "ls") == 0)
-    {
-        if (LIST.val == NULL)
-            printf("[*] Create New List with `new` cmd\n");
-        else
-            printList(&LIST);
-    }
+        printlist();
+    else if (strcmp(cmd, "ld") == 0)
+        printf("%s\n", cmd); // TODO
+    else if (strcmp(cmd, "uld") == 0)
+        printf("%s\n", cmd); // TODO
+    else if (strcmp(cmd, "new") == 0)
+        newlist();
+    else if (strcmp(cmd, "ins") == 0)
+        printf("%s\n", cmd); // TODO
+    else if (strcmp(cmd, "psh") == 0)
+        printf("%s\n", cmd); // TODO
+    else if (strcmp(cmd, "pop") == 0)
+        printf("%s\n", cmd); // TODO
+    else if (strcmp(cmd, "rm") == 0)
+        printf("%s\n", cmd); // TODO
     else
         printf("[-] cmd not found!\n");
 }
-
-void repl()
-{
-    greet();
-    while (LISTEN)
-    {
-        handlecmd(getcmd());
-    }
-};

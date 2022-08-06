@@ -8,7 +8,7 @@ typedef struct node
 } node_t;
 
 node_t createList(int nodec, char *nodes[]);
-void printList(node_t *head);
+int printList(node_t *head);
 
 node_t createList(int nodec, char *nodes[])
 {
@@ -27,14 +27,23 @@ node_t createList(int nodec, char *nodes[])
     return head;
 }
 
-void printList(node_t *head)
+int printList(node_t *head)
 {
     if (head == NULL)
-        return;
+        return 0;
+    int count = 0;
+    printf("[+] { ");
 
     while (head->next != NULL)
     {
-        printf("%s\n", head->val);
+        printf("%s, ", head->val);
         head = head->next;
-    }
+        count++;
+        if (count % 10 == 0)
+            printf("\n\t");
+    };
+
+    printf(" }\n");
+    printf("[+] Count:\t%d\n", count);
+    return count;
 }
