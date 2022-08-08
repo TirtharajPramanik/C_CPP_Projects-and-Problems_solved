@@ -17,14 +17,10 @@
 ├── factorial
 │   ├── factorial.c
 │   └── factorial_recursion.c
-├── fibonacci
-│   ├── fibonacci.c
-│   ├── fibonacci_recursion.c
-│   └── numbers.h
-└── linked_list
-    ├── main.c
-    ├── linked.h
-    └── repl.h
+└── fibonacci
+    ├── fibonacci.c
+    ├── fibonacci_recursion.c
+    └── numbers.h
 
-5 directories, 12 files
+4 directories, 9 files
 ```
